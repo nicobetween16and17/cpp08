@@ -6,14 +6,15 @@ int main()
 	try
 	{
 		std::vector<int> range;
-		for (int i = 0; i < 12; ++i) {
+		for (int i = 0; i < 13; ++i) {
 			range.push_back(rand() % 100 + 1);
 		}
 		Span s(13);
 		s.addRange(range.begin(), range.end());
 
 		s.printSpan();
-		std::cout << s.shortestSpan() << "\n";
+		std::cout << "shortest = "<<s.shortestSpan() << "\n";
+		std::cout << "longest = "<<s.longestSpan() << "\n";
 	}
 	catch (std::exception &e)
 	{

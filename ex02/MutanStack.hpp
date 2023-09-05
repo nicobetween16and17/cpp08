@@ -14,5 +14,9 @@ public:
 	virtual ~MutantStack() {}
 	iterator begin(){return this->c.begin();}
 	iterator end(){return this->c.end();}
+	void sort()
+	{
+		std::sort(this->begin(), this->end());
+	}
 };
 #endif

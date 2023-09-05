@@ -31,26 +31,17 @@ void Span::addRange(iterator begin, iterator end) {
 	{
 		addNumber(*begin);
 	}
-	while (begin++ != end);
+	while (++begin != end);
 
 }
 
 int Span::shortestSpan() {
 	std::vector<int> cpy(_lst);
-	for (size_t i = 0; i < _lst.size() -1; ++i) {
-		std::cout << cpy[i] << " ";
-	}
-	std::cout << "\n";
 	if (cpy.size() < 2)
 		throw std::exception();
-	std::sort(cpy.begin(), cpy.end() - 1);
-
+	std::sort(cpy.begin(), cpy.end());
 	int shortest_span;
 	shortest_span = cpy[1] - cpy[0];
-	for (size_t i = 0; i < _lst.size() -1; ++i) {
-		std::cout << cpy[i] << " ";
-	}
-	std::cout << "\n";
 	if (!shortest_span)
 		return shortest_span;
 	for (unsigned int i = 0; i < cpy.size() - 1; ++i) {
@@ -74,8 +65,8 @@ void Span::printSpan() {
 		return ;
 	std::cout << "[";
 
-	for (size_t i = 0; i < _lst.size() - 1; ++i) {
-		i != _lst.size() - 2 || _lst.size() == 1 ?  std::cout << _lst[i] << " " : std::cout << _lst[i];
+	for (size_t i = 0; i < _lst.size(); ++i) {
+		i == _lst.size() - 1 || _lst.size() == 1 ?  std::cout << _lst[i]  : std::cout << _lst[i] << " ";
 	}
 	std::cout << "]\n";
 }
